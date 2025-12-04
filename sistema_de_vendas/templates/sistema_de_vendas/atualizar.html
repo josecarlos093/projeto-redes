@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizar Cliente</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4e54c8;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #6c63ff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5751d9;
+        }
+
+        .erro {
+            color: red;
+            margin-bottom: 15px;
+        }
+
+        .voltar {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #6c63ff;
+            font-weight: bold;
+        }
+
+        .voltar:hover {
+            color: #4e54c8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Atualizar Cliente</h1>
+
+        {% if erro %}
+            <p class="erro">{{ erro }}</p>
+        {% endif %}
+
+        {% if cliente %}
+            <!-- Formulário de atualização -->
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="cliente_id" value="{{ cliente.id }}">
+                <input type="text" name="nome" placeholder="Nome" value="{{ cliente.nome }}" required><br>
+                <input type="number" name="idade" placeholder="Idade" value="{{ cliente.idade }}" required><br>
+                <input type="text" name="usuario" placeholder="Usuário" value="{{ cliente.usuario }}" required><br>
+                <input type="password" name="senha" placeholder="Senha" value="{{ cliente.senha }}" required><br>
+                <button type="submit">Atualizar</button>
+            </form>
+        {% else %}
+            <!-- Formulário para digitar o ID -->
+            <form method="POST">
+                {% csrf_token %}
+                <input type="number" name="cliente_id" placeholder="Digite o ID do cliente" required><br>
+                <button type="submit">Buscar Cliente</button>
+            </form>
+        {% endif %}
+
+        <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Cliente</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4e54c8;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #6c63ff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5751d9;
+        }
+
+        .erro {
+            color: red;
+            margin-bottom: 15px;
+        }
+
+        .voltar {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #6c63ff;
+            font-weight: bold;
+        }
+
+        .voltar:hover {
+            color: #4e54c8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>cliente mais antigo </h1>
+
+        {% if erro %}
+            <p class="erro">{{ erro }}</p>
+        {% endif %}
+
+            <p><strong>ID:</strong> {{ cliente.id }}</p>
+            <p><strong>Nome:</strong> {{ cliente.nome }}</p>
+            <p><strong>Idade:</strong> {{ cliente.idade }}</p>
+            <p><strong>Usuário:</strong> {{ cliente.usuario }}</p>
+            {% if cliente.tempo_cadastro %}
+                <p><strong>Cadastro:</strong> {{ cliente.tempo_cadastro }}</p>
+            {% endif %}
+
+        <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+    </div>
+</body>
+</html>

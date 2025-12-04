@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Vendas - API Cliente</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: rgba(0,0,0,0.6);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .menu a {
+      display: block;
+      margin: 10px 0;
+      padding: 12px 20px;
+      background-color: #6c63ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .menu a:hover {
+      background-color: #5751d9;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .menu a.btn {
+      background-color: #ff6584;
+    }
+
+    .menu a.btn:hover {
+      background-color: #e04c6b;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💻 Sistema de Vendas – API Cliente</h1>
+    <p>Bem-vindo! Escolha uma operação abaixo:</p>
+    <div class="menu">
+      <a href="{% url 'verificar_status' %}"> verificar se o servidor está ativo</a>
+      <a href="{% url 'listar_clientes' %}"> listar todos os clientes</a>
+      <a href="{% url 'buscar_cliente' %}"> listar um cliente específico pelo ID </a> 
+      <a href="{% url 'cliente_mais_antigo' %}"> listar o cliente mais antigo</a>
+      <a href="{% url 'adicionar_cliente' %}"> inserir um novo cliente</a>
+      <a href="{% url 'atualizar_cliente' %}"> atualizar um campo específico de um cliente pelo ID</a>
+      <a href="{% url 'remover_cliente' %}">  remover um cliente pelo ID</a>
+    </div>
+  </div>
+</body>
+</html>

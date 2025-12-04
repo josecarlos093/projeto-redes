@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Status do Servidor</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(0,0,0,0.7);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .status-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: gray; /* padrão */
+        }
+
+        .ativo {
+            background-color: #4CAF50; /* verde */
+        }
+
+        .desligado {
+            background-color: #F44336; /* vermelho */
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            padding: 12px 25px;
+            text-decoration: none;
+            background-color: #6c63ff;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-voltar:hover {
+            background-color: #5751d9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💻 Status do Servidor</h1>
+        <div class="status">
+            <span class="status-circle {% if status.status == 'Servidor ativo' %}ativo{% else %}desligado{% endif %}"></span>
+            <span>{{ status.status }}</span>
+        </div>
+        <a href="{% url 'home' %}" class="btn-voltar">Voltar</a>
+    </div>
+</body>
+</html>

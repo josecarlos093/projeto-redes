@@ -1,0 +1,41 @@
+0 = recomandação criar um ambiente virtual
+
+ python -m venv .venv
+
+1 = instalacões necessaria para o sistema funciona.
+
+pip install django
+pip install django requests
+pip install fastapi
+pip install "uvicorn[standard]"
+pip install django fastapi uvicorn
+pip install passlib[bcrypt]
+
+2 = segurança
+pip install bcrypt
+
+
+
+3 terminal dividir
+
+roda 
+
+uvicorn fast_api.main:app --reload --port 8001
+
+site
+
+http://127.0.0.1:8001/clientes/
+
+api
+
+---------------------------------------------------------
+roda
+
+python manage.py runserver 8000
+
+site
+http://127.0.0.1:8000/
+
+django
+
+-----------------------------------------------------------
